@@ -17,4 +17,11 @@ Element::Element(std::string nName, int nPosNum)
     positionNumber = nPosNum;
     stateStart = "";
     stateEnd = "";
+    cssClasses = "";
+}
+
+int Element::Export(){
+
+
+    return 0;
 }
