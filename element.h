@@ -5,12 +5,15 @@
 class Element
 {
 protected:
-    std::string name;//Название элемента
-    int positionNumber;//Порядковый номер элемента
-    std::string state;//Что представляет из себя элемент
+    std::string name;//p_1
+    int positionNumber;//0
+    std::string stateStart; //<p class="">
+    std::string stateEnd;//</p>
+    std::string cssClasses;//classes
 public:
     Element();
-    Element(std::string name, int posNum, std::string state);
+    Element(std::string name, int posNum);
+    int Export();
 };
 
 #endif // ELEMENT_H

@@ -6,12 +6,15 @@ Element::Element()
 {
     name = "Empthy";
     positionNumber = 0;
-    state = "<div></div>";
+    stateStart = "<div>";
+    stateEnd = "</div>";
+    cssClasses = "";
 }
 
-Element::Element(string nName, int nPosNum, std::string nState)
+Element::Element(std::string nName, int nPosNum)
 {
     name = nName;
     positionNumber = nPosNum;
-    state = nState;
+    stateStart = "";
+    stateEnd = "";
 }
