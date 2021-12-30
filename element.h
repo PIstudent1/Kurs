@@ -5,15 +5,17 @@
 class Element
 {
 protected:
-    std::string name;//p_1
-    int positionNumber;//0
-    std::string stateStart; //<p class="">
-    std::string stateEnd;//</p>
-    std::string cssClasses;//classes
+    std::string name;
+    int positionNumber;
+    std::string stateStart;
+    std::string stateEnd;
+    std::string cssClasses;
+    std::string value;
 public:
     Element();
-    Element(std::string name, int posNum);
-    int Export();
+    Element(std::string name, int posNum, std::string nStateStart, std::string nStateEnd, std::string nCssClasses, std::string nValue);
+
+    friend std::ostream& operator<< (std::ostream &out, const Element elem);
 };
 
 #endif // ELEMENT_H

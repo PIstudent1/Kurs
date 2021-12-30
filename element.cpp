@@ -1,4 +1,5 @@
 #include "element.h"
+#include "iostream"
 
 using namespace std;
 
@@ -11,17 +12,21 @@ Element::Element()
     cssClasses = "";
 }
 
-Element::Element(std::string nName, int nPosNum)
+Element::Element(string nName, int nPosNum, string nStateStart, string nStateEnd, string nCssClasses, string nValue)
 {
     name = nName;
     positionNumber = nPosNum;
-    stateStart = "";
-    stateEnd = "";
-    cssClasses = "";
+    stateStart = nStateStart;
+    stateEnd = nStateEnd;
+    cssClasses = nCssClasses;
+    value = nValue;
 }
 
-int Element::Export(){
+ostream& operator<< (ostream &out, const Element elem){
+    string tmp;
+    tmp = elem.stateStart;
+    tmp.insert(tmp.length()-1, " class=\"" + elem.cssClasses + "\" id=\"" + elem.name + "\"");
+    out << tmp << elem.value << elem.stateEnd;
 
-
-    return 0;
+    return out;
 }
