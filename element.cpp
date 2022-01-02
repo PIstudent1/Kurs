@@ -6,16 +6,14 @@ using namespace std;
 Element::Element()
 {
     name = "Empthy";
-    positionNumber = 0;
     stateStart = "<div>";
     stateEnd = "</div>";
     cssClasses = "";
 }
 
-Element::Element(string nName, int nPosNum, string nStateStart, string nStateEnd, string nCssClasses, string nValue)
+Element::Element(string nName, string nStateStart, string nStateEnd, string nCssClasses, string nValue)
 {
     name = nName;
-    positionNumber = nPosNum;
     stateStart = nStateStart;
     stateEnd = nStateEnd;
     cssClasses = nCssClasses;

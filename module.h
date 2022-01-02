@@ -15,6 +15,7 @@ public:
     Module();
     Module(std::string name, int posNum, std::string cssClasses);
     Module(std::string name, int posNum, std::string cssClasses, std::vector<Element> elems);
+    int addElement(Element element);
 
     friend std::ostream& operator<< (std::ostream &out, const Module module);
 };

@@ -32,3 +32,8 @@ ostream& operator<< (ostream &out, const Module module){
     out << "</div>";
     return out;
 }
+
+int Module::addElement(Element nElement){
+    elems.push_back(nElement);
+    return 0;
+}

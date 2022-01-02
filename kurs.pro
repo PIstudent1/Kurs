@@ -12,12 +12,16 @@ SOURCES += \
     element.cpp \
     main.cpp \
     mainwindow.cpp \
-    module.cpp
+    module.cpp \
+    page.cpp \
+    site.cpp
 
 HEADERS += \
     element.h \
     mainwindow.h \
-    module.h
+    module.h \
+    page.h \
+    site.h
 
 FORMS += \
     mainwindow.ui
