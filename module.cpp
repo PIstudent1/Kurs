@@ -24,6 +24,46 @@ Module::Module(string nName, int nPosNum, string nCssClasses, vector<Element> nE
     cssClasses = nCssClasses;
 }
 
+string Module::getName(){
+    return name;
+}
+
+int Module::getPosNum(){
+    return positionNumber;
+}
+
+string Module::getCssClasses(){
+    return cssClasses;
+}
+
+vector<Element> Module::getElems(){
+    return elems;
+}
+
+int Module::setName(string nName){
+    if(nName == "" || nName == "\n" || nName[0] == ' '){
+        return 1;
+    }
+    name = nName;
+    return 0;
+}
+
+int Module::setPosNum(int nPositionNumber){
+    if(nPositionNumber < 0) return 1;
+    positionNumber = nPositionNumber;
+    return 0;
+}
+
+int Module::setCssClasses(string nCssClasses){
+    cssClasses = nCssClasses;
+    return 0;
+}
+
+int Module::setElems(vector<Element> nElems){
+    elems = nElems;
+    return 0;
+}
+
 ostream& operator<< (ostream &out, const Module module){
     out << "<div id=\"" << module.name << "\" class=\"" << module.cssClasses << "\">";
     for(int i = 0; i < module.elems.size(); i++){
