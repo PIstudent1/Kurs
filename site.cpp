@@ -78,33 +78,20 @@ int Site::exp(){
     dir.mkdir(QString::fromStdString(pathdir) + "/css");
     dir.mkdir(QString::fromStdString(pathdir) + "/js");
 
-    dir = QDir("./css");
-    QFileInfoList list = dir.entryInfoList();
-    dir.cdUp();
+    dir = QDir(".");
+    QString dest = dir.absolutePath() + "/" + QString::fromStdString(name) + "/css/";
+    QFile::copy(":res/style.css", dest+"style.css");
+    QFile::copy(":res/b.min.css", dest+"bootstrap.min.css");
+    QFile::copy(":res/b.min.css.map", dest+"bootstrap.min.css.map");
 
-    foreach (QFileInfo finfo, list) {
-          QString nameF = finfo.absolutePath() + "/" + finfo.fileName();
-          QString dest = dir.absolutePath() + "/" + QString::fromStdString(name) + "/css/" + finfo.fileName();
-          cout << nameF.toStdString() << endl;
-          cout << dest.toStdString() << endl;
-          QFile::copy(nameF,dest);
-    }
-
-    dir = QDir("./js");
-    list = dir.entryInfoList();
-    dir.cdUp();
-
-    foreach (QFileInfo finfo, list) {
-          QString nameF = finfo.absolutePath() + "/" + finfo.fileName();
-          QString dest = dir.absolutePath() + "/" + QString::fromStdString(name) + "/js/" + finfo.fileName();
-          cout << nameF.toStdString() << endl;
-          cout << dest.toStdString() << endl;
-          QFile::copy(nameF,dest);
-    }
+    dest = dir.absolutePath() + "/" + QString::fromStdString(name) + "/js/";
+    QFile::copy(":res/jquery.js", dest+"jquery-3.6.0.min.css");
+    QFile::copy(":res/b.min.js", dest+"bootstrap.min.js");
+    QFile::copy(":res/b.min.js.map", dest+"bootstrap.min.js.map");
 
     QString val;
     QFile file;
-    file.setFileName(QString::fromStdString(templ) + ".json");
+    file.setFileName(":res/" + QString::fromStdString(templ) + ".json");
     file.open(QIODevice::ReadOnly | QIODevice::Text);
     val = file.readAll();
     file.close();

@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/res">
+        <file alias="templ.json">res/templ.json</file>
+        <file alias="b.min.css">res/css/bootstrap.min.css</file>
+        <file alias="b.min.css.map">res/css/bootstrap.min.css.map</file>
+        <file alias="style.css">res/css/style.css</file>
+        <file alias="b.min.js">res/js/bootstrap.min.js</file>
+        <file alias="b.min.js.map">res/js/bootstrap.min.js.map</file>
+        <file alias="jquery.js">res/js/jquery-3.6.0.min.js</file>
+    </qresource>
+</RCC>
