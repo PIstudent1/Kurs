@@ -66,8 +66,8 @@ int Module::setElems(vector<Element> nElems){
 
 ostream& operator<< (ostream &out, const Module module){
     out << "<div id=\"" << module.name << "\" class=\"" << module.cssClasses << "\">";
-    for(int i = 0; i < module.elems.size(); i++){
-        out << module.elems[i];
+    for(unsigned long long i = 0; i < module.elems.size(); i++){
+        out << module.elems[i] << "\n";
     }
     out << "</div>";
     return out;

@@ -14,8 +14,17 @@ public:
     Site();
     Site(std::string name, std::string templ);
     Site(std::string name, std::string templ, std::vector<Page> pages);
+
+    std::string getName();
+    std::string getTempl();
+    std::vector<Page> getPages();
+
+    int setName(std::string name);
+    int setTempl(std::string templ);
+    int setPages(std::vector<Page> pages);
+
     int addPage(Page page);
 
-    friend std::ostream& operator<< (std::ostream &out, const Site site);
+    int exp();
 };
 #endif // SITE_H
