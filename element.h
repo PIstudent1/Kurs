@@ -4,29 +4,26 @@
 
 class Element
 {
-private:
+protected:
     std::string name;
-    std::string stateStart;
-    std::string stateEnd;
+    std::string state;
     std::string cssClasses;
     std::string value;
 public:
     Element();
-    Element(std::string name, std::string nStateStart, std::string nStateEnd, std::string nCssClasses, std::string nValue);
+    Element(std::string name, std::string nCssClasses, std::string nValue);
 
     std::string getName();
-    std::string getStateStart();
-    std::string getStateEnd();
+    std::string getState();
     std::string getCssClasses();
     std::string getValue();
 
     int setName(std::string name);
-    int setStateStart(std::string stateStart);
-    int setStateEnd(std::string stateEnd);
+    int setState(std::string nState);
     int setCssClasses(std::string cssClasses);
     int setValue(std::string value);
 
-    friend std::ostream& operator<< (std::ostream &out, const Element elem);
+    virtual std::string display();
 };
 
 #endif // ELEMENT_H

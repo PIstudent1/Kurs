@@ -24,6 +24,7 @@ public:
     int setPages(std::vector<Page> pages);
 
     int addPage(Page page);
+    int delPage(unsigned long long posNum);
 
     int exp();
 };

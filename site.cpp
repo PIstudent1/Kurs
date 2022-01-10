@@ -70,6 +70,17 @@ int Site::addPage(Page page)
     return 0;
 }
 
+int Site::delPage(unsigned long long num){
+    if(num >= pages.size()) return 1;
+
+    for(unsigned long long i = 0; i < pages[num].getElements().size(); i++){
+        pages[num].delElement(i);
+    }
+
+    pages.erase(pages.begin() + num);
+    return 0;
+}
+
 int Site::exp(){
     string pathdir = "./"+name;
 
@@ -121,7 +132,7 @@ int Site::exp(){
         tmp.replace("#site_page_name", QString::fromStdString(pages[i].getName()));
         fout << tmp.toStdString();
 
-        fout << pages[i];
+        fout << pages[i].display();
 
         tmp = json["footer"].toString();
         fout << tmp.toStdString();

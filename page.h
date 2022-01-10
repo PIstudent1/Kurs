@@ -2,27 +2,28 @@
 #define PAGE_H
 #include <iostream>
 #include <vector>
-#include <module.h>
+#include <element.h>
 
 class Page
 {
 private:
     std::string name;
-    std::vector<Module> modules;
+    std::vector<Element*> elems;
 public:
     Page();
     Page(std::string name);
-    Page(std::string name, std::vector<Module> modules);
+    Page(std::string name, std::vector<Element*> elems);
 
     std::string getName();
-    std::vector<Module> getModules();
+    std::vector<Element*> getElements();
 
     int setName(std::string name);
-    int setModules(std::vector<Module> modules);
+    int setElements(std::vector<Element*> elems);
 
-    int addModule(Module module);
+    int addElement(Element* elem);
+    int delElement(unsigned long long posNum);
 
-    friend std::ostream& operator<< (std::ostream &out, const Page page);
+    virtual std::string display();
 };
 
 #endif // PAGE_H

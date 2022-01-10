@@ -1,7 +1,7 @@
 #include "page.h"
 #include <iostream>
 #include <vector>
-#include <module.h>
+#include <element.h>
 
 using namespace std;
 
@@ -15,18 +15,18 @@ Page::Page(string nName)
     name = nName;
 }
 
-Page::Page(string nName, vector<Module> nModules)
+Page::Page(string nName, vector<Element*> nElems)
 {
     name = nName;
-    modules = nModules;
+    elems = nElems;
 }
 
 string Page::getName(){
     return name;
 }
 
-vector<Module> Page::getModules(){
-    return modules;
+vector<Element*> Page::getElements(){
+    return elems;
 }
 
 int Page::setName(string nName){
@@ -37,22 +37,29 @@ int Page::setName(string nName){
     return 0;
 }
 
-int Page::setModules(vector<Module> nModules){
-    modules = nModules;
+int Page::setElements(vector<Element*> nElems){
+    elems = nElems;
     return 0;
 }
 
-int Page::addModule(Module module)
+int Page::addElement(Element* elem)
 {
-    modules.push_back(module);
+    elems.push_back(elem);
     return 0;
 }
 
-ostream& operator<< (ostream &out, const Page page){
-    out << "<body id=\"" << page.name << "\">";
-    for(unsigned long long i = 0; i < page.modules.size(); i++){
-        out << page.modules[i];
+int Page::delElement(unsigned long long num)
+{
+    if(num >= elems.size()) return 1;
+    elems.erase(elems.begin() + num);
+    return 0;
+}
+
+string Page::display(){
+    string out = "<body id=\"" + name + "\">";
+    for(unsigned long long i = 0; i < elems.size(); i++){
+        out += elems[i]->display();
     }
-    out << "</body></html>";
+    out += "</body></html>";
     return out;
 }
